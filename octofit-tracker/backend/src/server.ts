@@ -2,7 +2,6 @@ import 'dotenv/config';
 import cors from 'cors';
 import express, { type ErrorRequestHandler } from 'express';
 import mongoose from 'mongoose';
-import { apiPort, getApiBaseUrl } from './config/api.js';
 import { connectDatabase } from './config/database.js';
 import activitiesRouter from './routes/activities.js';
 import leaderboardRouter from './routes/leaderboard.js';
@@ -11,7 +10,11 @@ import usersRouter from './routes/users.js';
 import workoutsRouter from './routes/workouts.js';
 
 const app = express();
-const apiBaseUrl = getApiBaseUrl();
+const apiPort = 8000;
+const codespaceName = process.env.CODESPACE_NAME;
+const apiBaseUrl = codespaceName
+  ? `https://${codespaceName}-8000.app.github.dev`
+  : `http://localhost:${apiPort}`;
 
 app.use(cors());
 app.use(express.json());
