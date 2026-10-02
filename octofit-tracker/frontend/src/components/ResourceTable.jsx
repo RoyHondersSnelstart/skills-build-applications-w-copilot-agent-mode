@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { buildApiUrl, normalizeCollection } from '../api.js'
+import { normalizeCollection } from '../api.js'
 
 function formatValue(value) {
   if (value === null || value === undefined || value === '') {
@@ -17,7 +17,7 @@ function formatValue(value) {
   return String(value)
 }
 
-function ResourceTable({ title, eyebrow, resource, columns }) {
+function ResourceTable({ title, eyebrow, endpoint, columns }) {
   const [records, setRecords] = useState([])
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
@@ -28,7 +28,7 @@ function ResourceTable({ title, eyebrow, resource, columns }) {
     async function loadRecords() {
       try {
         setStatus('loading')
-        const response = await fetch(buildApiUrl(resource), {
+        const response = await fetch(endpoint, {
           signal: controller.signal,
         })
 
@@ -53,7 +53,7 @@ function ResourceTable({ title, eyebrow, resource, columns }) {
     loadRecords()
 
     return () => controller.abort()
-  }, [resource])
+  }, [endpoint])
 
   return (
     <section className="resource-view">
