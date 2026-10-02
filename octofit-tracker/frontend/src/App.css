@@ -1,0 +1,152 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 28px 22px;
+}
+
+.brand {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.brand img {
+  background: #ffffff;
+  border-radius: 8px;
+  height: 54px;
+  object-fit: contain;
+  padding: 6px;
+  width: 54px;
+}
+
+.brand span,
+.brand strong {
+  display: block;
+  line-height: 1.05;
+}
+
+.brand span {
+  color: #93c5fd;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.brand strong {
+  font-size: 24px;
+}
+
+.nav-list {
+  display: grid;
+  gap: 8px;
+}
+
+.nav-list a {
+  border-radius: 8px;
+  color: #cbd5e1;
+  padding: 11px 12px;
+  text-decoration: none;
+}
+
+.nav-list a.active,
+.nav-list a:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.content-panel {
+  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 40px;
+}
+
+.resource-view {
+  display: grid;
+  gap: 24px;
+}
+
+.resource-header p {
+  color: #0f766e;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.resource-header h1 {
+  color: #0f172a;
+  font-size: 42px;
+  margin: 0;
+}
+
+.table-wrap {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  overflow-x: auto;
+}
+
+.table-wrap th {
+  color: #334155;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.table-wrap td {
+  color: #1e293b;
+  min-width: 130px;
+}
+
+.state-message {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #334155;
+  padding: 22px;
+}
+
+.state-message.error {
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    padding: 20px;
+  }
+
+  .brand {
+    margin-bottom: 18px;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .nav-list a {
+    flex: 0 0 auto;
+  }
+
+  .content-panel {
+    padding: 24px 16px;
+  }
+
+  .resource-header h1 {
+    font-size: 32px;
+  }
+}
