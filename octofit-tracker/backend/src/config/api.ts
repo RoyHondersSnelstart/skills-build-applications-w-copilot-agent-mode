@@ -1,4 +1,4 @@
-const apiPort = Number(process.env.PORT || 8000);
+const apiPort = 8000;
 
 export function getApiBaseUrl() {
   const codespaceName = process.env.CODESPACE_NAME;
